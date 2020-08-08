@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@200;500;800&display=swap" rel="stylesheet">
+    <title>{{title}}</title>
+</head>
+<body>
+    <div class="main-content">
+        {{>header}}
+        <h3 style="margin-bottom: 2em">Here ye, here ye, weather for ye here ye!</h3>
+        <form style="margin-bottom: 2em">
+            <input type="text" placeholder="location">
+            <button>Search</button>
+        </form>
+        <h3 id="loading"></h3>
+        <p id="weather-output1" style="display:none"></p>
+        <p id="weather-output2" style="display:none"></p>
+        <p id="weather-output3" style="display:none"></p>
+        <img src="img/putopolis.png">  
+    </div>
+    {{>footer}}
+    <script src="js/app.js"></script>
+</body>
+</html>

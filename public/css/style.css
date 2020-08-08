@@ -1,0 +1,85 @@
+html {
+    font-family: 'MuseoModerno', cursive;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'MuseoModerno', cursive;
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+h4 {
+    text-align: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: rgb(172, 0, 0);
+}
+
+.nav-link:visited {
+    color: rgb(172, 0, 0);
+}
+
+.nav-link:hover {
+    font-weight: 500;
+}
+
+img {
+    max-width: 400px;
+    margin: 3em 0;
+}
+
+header {
+    font-family: 'MuseoModerno', cursive;
+}
+
+header nav {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    list-style: none;
+}
+
+footer {
+    background-color: firebrick; 
+    color: white;
+    margin: 0; 
+    padding: 1em;
+    letter-spacing: .1em;
+}
+
+input {
+    padding: .5em;
+}
+
+button {
+    background: firebrick;
+    color: white;
+    padding: .6em;
+    border: red;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: rgb(218, 33, 33);
+}
