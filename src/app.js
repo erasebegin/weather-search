@@ -65,12 +65,15 @@ app.get("/weather", (req, res) => {
         return res.send({ error });
       }
 
-      const { summary, temperature, precipitation } = forecastData;
+      const { summary, tempLow, tempHigh, precipitation, icon } = forecastData;
 
       res.send({
         location: location,
         summary: summary,
         precipitation: precipitation,
+        tempLow: tempLow,
+        tempHigh: tempHigh,
+        icon: icon
       });
     });
   });

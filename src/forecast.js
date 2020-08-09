@@ -6,7 +6,7 @@ const forecast = (lat, long, callback) => {
     encodeURIComponent(lat) +
     "," +
     encodeURIComponent(long) +
-    "?exclude=minutely,daily,hourly,alerts,flags&units=si";
+    "?exclude=minutely,currently,hourly,alerts,flags&units=si";
 
   request(
     {
@@ -14,9 +14,11 @@ const forecast = (lat, long, callback) => {
       json: true
     },
     (error, response) => {
-      const { error: apiError, currently } = response.body;
-      const { temperature, precipProbability: precipitation } = currently;
-      const { summary } = currently;
+      const { error: apiError, daily } = response.body;
+      const { data  } = daily;
+      const today = data[0];
+      const {temperatureHigh, temperatureLow, summary, precipProbability, icon} = today;
+
 
       if (error) {
         callback("Could not connect to weather service", undefined);
@@ -25,8 +27,10 @@ const forecast = (lat, long, callback) => {
       } else {
         callback(undefined, {
           summary: summary,
-          temperature: temperature,
-          precipitation: precipitation
+          tempLow: temperatureLow,
+          tempHigh: temperatureHigh,
+          precipitation: precipProbability,
+          icon: icon
         });
       }
     }

@@ -83,3 +83,7 @@ button {
 button:hover {
     background: rgb(218, 33, 33);
 }
+
+.temp-container {
+    display: flex;
+}
