@@ -45,7 +45,7 @@ weatherForm.addEventListener("submit", (e) => {
   weatherLogo.src = "";
 
   fetch(
-    "http://localhost:3001/weather?address=" + encodeURIComponent(location)
+    "/weather?address=" + encodeURIComponent(location)
   ).then((response) => {
     response.json().then((data) => {
       if (data.error) {
