@@ -17,7 +17,14 @@ const forecast = (lat, long, callback) => {
       const { error: apiError, daily } = response.body;
       const { data  } = daily;
       const today = data[0];
-      const {temperatureHigh, temperatureLow, summary, precipProbability, icon} = today;
+      const day2 = data[1];
+      const day3 = data[2];
+      const day4 = data[3];
+
+      // const {temperatureHigh, temperatureLow, summary, precipProbability, icon} = today;
+      // const {temperatureHigh, temperatureLow, summary, precipProbability, icon} = day2;
+      // const {temperatureHigh, temperatureLow, summary, precipProbability, icon} = day3;
+      // const {temperatureHigh, temperatureLow, summary, precipProbability, icon} = day4;
 
 
       if (error) {
@@ -26,11 +33,10 @@ const forecast = (lat, long, callback) => {
         callback("Unable to find location", undefined);
       } else {
         callback(undefined, {
-          summary: summary,
-          tempLow: temperatureLow,
-          tempHigh: temperatureHigh,
-          precipitation: precipProbability,
-          icon: icon
+          today,
+          day2,
+          day3,
+          day4
         });
       }
     }

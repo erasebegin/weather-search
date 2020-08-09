@@ -28,7 +28,7 @@ hbs.registerPartials(partialsPath);
 app.get("", (req, res) => {
   res.render("index", {
     title: "Weather",
-    name: "Thinkdrops"
+    name: "Thinkdrops",
   });
 });
 
@@ -58,22 +58,21 @@ app.get("/weather", (req, res) => {
       return res.send({ error });
     }
 
-    const { lat, long, location } = {} = geocodeData;
+    const { lat, long, location } = ({} = geocodeData);
 
     forecast(lat, long, (error, forecastData) => {
       if (error) {
         return res.send({ error });
       }
 
-      const { summary, tempHigh, tempLow, precipitation, icon } = forecastData;
+      const { today, day2, day3, day4 } = forecastData;
 
       res.send({
-        location: location,
-        summary: summary,
-        precipitation: precipitation,
-        tempLow: tempLow,
-        tempHigh: tempHigh,
-        icon: icon
+        location,
+        today,
+        day2,
+        day3,
+        day4,
       });
     });
   });
@@ -85,7 +84,7 @@ app.get("/geocode", (req, res) => {
       return res.send({ error });
     }
 
-    const { lat, long, location } = {} = geocodeData;
+    const { lat, long, location } = ({} = geocodeData);
 
     res.send({
       latitude: lat,
@@ -116,5 +115,5 @@ app.get("*", (req, res) => {
 
 //setting listening port
 app.listen(port, () => {
-  console.log("server is running on port "+port);
+  console.log("server is running on port " + port);
 });
