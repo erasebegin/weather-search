@@ -28,7 +28,7 @@ hbs.registerPartials(partialsPath);
 app.get("", (req, res) => {
   res.render("index", {
     title: "Weather",
-    name: "Chrips"
+    name: "Thinkdrops"
   });
 });
 
@@ -65,7 +65,7 @@ app.get("/weather", (req, res) => {
         return res.send({ error });
       }
 
-      const { summary, tempLow, tempHigh, precipitation, icon } = forecastData;
+      const { summary, tempHigh, tempLow, precipitation, icon } = forecastData;
 
       res.send({
         location: location,
