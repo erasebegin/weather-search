@@ -84,7 +84,7 @@ weatherForm.addEventListener("submit", (e) => {
   csm3.style = "display:initial";
 
   fetch(
-    "http://localhost:3001/weather?address=" + encodeURIComponent(location)
+    "/weather?address=" + encodeURIComponent(location)
   ).then((response) => {
     response.json().then((data) => {
       if (data.error) {
