@@ -25,9 +25,9 @@ const icons = {
 };
 
 const getColor = (temp) => {
-  let hue = 236 - (temp * (temp*0.3)); 
-  hue < 0 ? hue = 0 : hue
-  return `hsl(${hue},50%,60%)`
+  let hue = 236 - temp * (temp * 0.3);
+  hue < 0 ? (hue = 0) : hue;
+  return `hsl(${hue},50%,60%)`;
 };
 
 weatherForm.addEventListener("submit", (e) => {
@@ -44,14 +44,14 @@ weatherForm.addEventListener("submit", (e) => {
   weatherOutput3.textContent = "";
   weatherLogo.src = "";
 
-  fetch(
-    "/weather?address=" + encodeURIComponent(location)
-  ).then((response) => {
+  fetch("/weather?address=" + encodeURIComponent(location)).then((response) => {
     response.json().then((data) => {
       if (data.error) {
         console.log(data.error);
+        weatherCard.style = "display:flex";
         weatherOutput1.textContent =
           "Unable to find location, please try again";
+        loading.style = "display:none";
       } else {
         const currentIcon = icons[data.icon];
 
@@ -65,8 +65,6 @@ weatherForm.addEventListener("submit", (e) => {
         weatherOutput3.textContent = data.precipitation + "% chance of rain";
         weatherCard.style = "display:flex";
         loading.style = "display:none";
-
-        console.log(getColor(data.tempLow),getColor(data.tempHigh))
       }
     });
   });
